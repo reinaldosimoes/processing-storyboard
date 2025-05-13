@@ -5,6 +5,7 @@ import Card from "../Card/Card";
 import { useEffect, useState } from "react";
 import { Play, Pause, RefreshCw } from "lucide-react";
 import Button from "../Button/Button";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 /**
  * Defines the latency intervals for different operation types
@@ -82,27 +83,31 @@ const Processing = ({ steps }: StepsProps) => {
         <h2 className="text-md text-black dark:text-white">
           Step {Math.min(activeIndex + 1, steps.length)} of {steps.length}
         </h2>
-        <div className="flex items-center gap-2">
-          <Button
-            variant="secondary"
-            size="sm"
-            onClick={toggleAutoplay}
-            ariaLabel={isAutoplay ? "Pause demo" : "Play demo"}
-          >
-            {isAutoplay ? (
-              <Pause className="w-4 h-4 text-black dark:text-white" />
-            ) : (
-              <Play className="w-4 h-4 text-black dark:text-white" />
-            )}
-          </Button>
-          <Button
-            variant="secondary"
-            size="sm"
-            onClick={resetDemo}
-            ariaLabel="Reset demo"
-          >
-            <RefreshCw className="w-4 h-4 text-black dark:text-white" />
-          </Button>
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
+
+          <div className="flex items-center gap-2">
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={toggleAutoplay}
+              ariaLabel={isAutoplay ? "Pause demo" : "Play demo"}
+            >
+              {isAutoplay ? (
+                <Pause className="w-4 h-4 text-black dark:text-white" />
+              ) : (
+                <Play className="w-4 h-4 text-black dark:text-white" />
+              )}
+            </Button>
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={resetDemo}
+              ariaLabel="Reset demo"
+            >
+              <RefreshCw className="w-4 h-4 text-black dark:text-white" />
+            </Button>
+          </div>
         </div>
       </div>
 

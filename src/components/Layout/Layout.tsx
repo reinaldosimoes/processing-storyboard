@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import Link from "../Link/Link";
 
 interface LayoutProps {
@@ -48,10 +47,6 @@ const Layout = ({ children }: LayoutProps) => {
               </p>
             </div>
           </div>
-        </div>
-
-        <div className="flex">
-          <ThemeToggle />
         </div>
       </div>
 
