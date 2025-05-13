@@ -7,7 +7,6 @@ const ThemeToggle = () => {
 
   return (
     <Button
-      variant="secondary"
       size="sm"
       onClick={toggleTheme}
       ariaLabel={`Switch to ${isDarkMode ? "light" : "dark"} mode`}

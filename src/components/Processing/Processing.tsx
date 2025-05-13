@@ -77,10 +77,10 @@ const Processing = ({ steps }: StepsProps) => {
   const allCompleted = activeIndex >= steps.length;
 
   return (
-    <div className="relative flex flex-col h-[600px] border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 rounded-lg overflow-hidden">
+    <div className="relative flex flex-col h-[600px] border border-black/5 dark:border-white/5 bg-black/1 dark:bg-white/1 rounded-lg overflow-hidden">
       {/* Header section with step counter and controls */}
       <div className="flex items-center justify-between p-4 bg-white dark:bg-black">
-        <h2 className="text-md text-black dark:text-white">
+        <h2 className="text-sm text-black dark:text-white opacity-70 leading-relaxed">
           Step {Math.min(activeIndex + 1, steps.length)} of {steps.length}
         </h2>
         <div className="flex items-center gap-4">
@@ -88,7 +88,6 @@ const Processing = ({ steps }: StepsProps) => {
 
           <div className="flex items-center gap-2">
             <Button
-              variant="secondary"
               size="sm"
               onClick={toggleAutoplay}
               ariaLabel={isAutoplay ? "Pause demo" : "Play demo"}
@@ -99,12 +98,7 @@ const Processing = ({ steps }: StepsProps) => {
                 <Play className="w-4 h-4 text-black dark:text-white" />
               )}
             </Button>
-            <Button
-              variant="secondary"
-              size="sm"
-              onClick={resetDemo}
-              ariaLabel="Reset demo"
-            >
+            <Button size="sm" onClick={resetDemo} ariaLabel="Reset demo">
               <RefreshCw className="w-4 h-4 text-black dark:text-white" />
             </Button>
           </div>

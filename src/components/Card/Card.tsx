@@ -33,11 +33,11 @@ const CardBase = ({
         </div>
 
         <div className="flex-1">
-          <h2 className="select-none text-sm font-medium text-gray-900 dark:text-gray-100 mb-1 line-clamp-1">
+          <h2 className="select-none text-sm font-medium text-gray-900 dark:text-gray-100 line-clamp-1 leading-relaxed">
             {title}
           </h2>
 
-          <p className="select-none text-xs text-gray-600 dark:text-gray-400 leading-tight line-clamp-1">
+          <p className="select-none text-xs text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-1">
             {description}
           </p>
         </div>

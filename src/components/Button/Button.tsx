@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 
 export interface ButtonProps {
   children: ReactNode;
-  variant?: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
   className?: string;
   onClick?: () => void;
@@ -13,7 +12,6 @@ export interface ButtonProps {
 
 const Button = ({
   children,
-  variant = "primary",
   size = "md",
   className = "",
   onClick,
@@ -22,15 +20,7 @@ const Button = ({
   ariaLabel,
 }: ButtonProps) => {
   const baseStyles =
-    "rounded-lg transition-all duration-150 cursor-pointer shadow-lg hover:shadow-md active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed";
-
-  const variants = {
-    primary:
-      "bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90",
-    secondary:
-      "border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10",
-    ghost: "hover:bg-black/5 dark:hover:bg-white/5",
-  };
+    "border border-black/10 dark:border-white/10 bg-black/1 dark:bg-white/10 hover:bg-black/2 dark:hover:bg-white/2 rounded-lg transition-all duration-150 cursor-pointer shadow-lg hover:shadow-md active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed";
 
   const sizes = {
     sm: "px-3 py-1.5 text-sm",
@@ -38,8 +28,7 @@ const Button = ({
     lg: "px-6 py-3 text-lg",
   };
 
-  const buttonClasses =
-    `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`.trim();
+  const buttonClasses = `${baseStyles} ${sizes[size]} ${className}`.trim();
 
   return (
     <button

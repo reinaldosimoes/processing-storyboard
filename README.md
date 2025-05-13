@@ -1,8 +1,8 @@
-# Processing Storyboard — Interactive API Debugger
+# Processing Storyboard, an Interactive API Debugger
 
 This repo re-imagines the API request/response lifecycle as an **interactive storyboard carousel**. It's designed to help **developers**, **designers**, and **non-technical stakeholders** quickly understand what happens between an API request and its response.
 
-![Screenshot of the app](./screenshot.png)
+![Recording of the demo](./demo.gif)
 
 **Live demo:** https://processing-storyboard.vercel.app/
 
@@ -23,7 +23,7 @@ Traditional list views lack clarity. They don't show how many steps exist, why s
 ## ✨ Features
 
 - **3D Interactive Cards** – tilt based on cursor movement
-- **Step-by-step Playback** – one card per step, with peekable depth
+- **Step-by-step Playback** – one card per step, with "peekable" depth
 - **Progress Bars** – animated based on real latency data
 - **Icons & Colors** – mapped to operation types (`validate`, `enrich`, `fraud`, etc.)
 - **Completion Animations** – spinner turns into a checkmark

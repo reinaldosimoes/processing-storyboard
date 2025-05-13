@@ -11,19 +11,21 @@ const Layout = ({ children }: LayoutProps) => {
       className="container px-8 py-16 lg:py-0 md:mx-auto flex justify-between items-center min-h-screen gap-16 flex-col lg:flex-row text-black dark:text-white"
       role="main"
     >
-      <div className="flex flex-col gap-8 w-full lg:w-1/3">
-        <div className="flex flex-col gap-8">
+      <div className="h-full w-full lg:w-1/4">
+        <div className="h-full flex flex-col items-start">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-2">
-              <h1 className="text-xl font-semibold">Processing Storyboard</h1>
+              <h1 className="text-sm leading-relaxed">Processing Storyboard</h1>
 
-              <p className="text-xs opacity-70">
-                Visualize API workflows as an animated, interactive storyboard.
+              <p className="text-sm opacity-70 leading-relaxed">
+                Visualize API workflows as an interactive storyboard carousel.
+                Each API step is shown as an animated card, making complex
+                processes clear for everyone.
               </p>
             </div>
 
-            <div className="flex flex-col gap-2">
-              <p className="text-xs">
+            <div className="flex flex-col text-black/40 dark:text-white/40">
+              <p className="text-xs leading-relaxed">
                 Created by{" "}
                 <Link
                   href="https://reinaldo.pt"
@@ -35,7 +37,7 @@ const Layout = ({ children }: LayoutProps) => {
                 .
               </p>
 
-              <p className="text-xs">
+              <p className="text-xs leading-relaxed">
                 Source code available on{" "}
                 <Link
                   href="https://github.com/reinaldosimoes/processing-storyboard"
@@ -50,7 +52,7 @@ const Layout = ({ children }: LayoutProps) => {
         </div>
       </div>
 
-      <div className="w-full lg:w-2/3" role="complementary">
+      <div className="h-full w-full lg:w-3/4" role="complementary">
         {children}
       </div>
     </div>
