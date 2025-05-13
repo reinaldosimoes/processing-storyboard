@@ -23,7 +23,7 @@ Traditional list views lack clarity. They don't show how many steps exist, why s
 ## ✨ Features
 
 - **3D Interactive Cards** – tilt based on cursor movement
-- **Step-by-step Playback** – one card per step, with "peekable" depth
+- **Step-by-step Playback** – one card per step
 - **Progress Bars** – animated based on real latency data
 - **Icons & Colors** – mapped to operation types (`validate`, `enrich`, `fraud`, etc.)
 - **Completion Animations** – spinner turns into a checkmark
