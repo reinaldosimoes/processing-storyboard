@@ -122,10 +122,6 @@ npm test -- --watch
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on how to submit pull requests, report issues, and suggest features.
 
-## 🔒 Security
-
-Please report any security vulnerabilities to us as described in our [Security Policy](SECURITY.md).
-
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
