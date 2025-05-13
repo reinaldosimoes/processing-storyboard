@@ -32,44 +32,37 @@ Traditional list views lack clarity. They don't show how many steps exist, why s
 
 ---
 
-## 🧪 Example Step Data
+## 🧪 Usage Example
 
-```ts
-{
-  title: "Validate Account",
-  type: "validate",
-  payload: [
-    { key: "status", value: "active" },
-    { key: "balance", value: 1000 },
-    { key: "currency", value: "USD" }
-  ]
-}
+Here's how to use the `Processing` component with a set of steps:
 
-const operationTypes = {
-  validate: {
-    description: "Validates account information",
-    icon: "check-circle",
-    color: "blue",
-    latency: "fast"
+```tsx
+import Processing from "./components/Processing/Processing";
+
+const steps = [
+  {
+    title: "Validate Account",
+    type: "validate",
+    payload: [
+      { key: "status", value: "active" },
+      { key: "balance", value: 1000 },
+      { key: "currency", value: "USD" },
+    ],
   },
-  enrich: {
-    description: "Enriches data with additional information",
-    icon: "plus-circle",
-    color: "green",
-    latency: "average"
+  {
+    title: "Enrich Customer Data",
+    type: "enrich",
+    payload: [
+      { key: "risk_score", value: 0.8 },
+      { key: "country", value: "US" },
+      { key: "customer_since", value: "2023-01-15" },
+    ],
   },
-  fraud: {
-    description: "Performs fraud checks",
-    icon: "shield",
-    color: "red",
-    latency: "slow"
-  },
-  transform: {
-    description: "Transforms data format",
-    icon: "refresh-cw",
-    color: "purple",
-    latency: "average"
-  }
+  // ...more steps
+];
+
+function App() {
+  return <Processing steps={steps} />;
 }
 ```
 
