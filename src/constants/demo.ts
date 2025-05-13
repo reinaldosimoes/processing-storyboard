@@ -37,7 +37,7 @@ export const MOCK_STEPS: Step[] = [
       },
       {
         key: "Version",
-        value: "1.0.1",
+        value: "1.0.2",
       },
       {
         key: "Features",
