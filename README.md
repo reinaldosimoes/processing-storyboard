@@ -70,12 +70,12 @@ function App() {
 
 ## 🛠 Tech Stack
 
-| Category        | Stack                          |
-| --------------- | ------------------------------ |
-| Build & runtime | Vite • React 19 • TypeScript 5 |
-| Styling & icons | Tailwind CSS 4 • lucide-react  |
-| Animation       | Framer Motion 12               |
-| Testing         | Vitest 3 • Testing Library     |
+| Category        | Stack                       |
+| --------------- | --------------------------- |
+| Build & runtime | Vite • React • TypeScript   |
+| Styling & icons | Tailwind CSS • lucide-react |
+| Animation       | Framer Motion               |
+| Testing         | Vitest • Testing Library    |
 
 ---
 
