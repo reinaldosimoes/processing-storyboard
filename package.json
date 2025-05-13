@@ -17,7 +17,7 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.4",
+    "@tailwindcss/vite": "^4.1.6",
     "lucide-react": "^0.510.0",
     "motion": "^12.9.2",
     "react": "^19.0.0",
