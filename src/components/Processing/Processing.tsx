@@ -77,7 +77,7 @@ const Processing = ({ steps }: StepsProps) => {
   const allCompleted = activeIndex >= steps.length;
 
   return (
-    <div className="relative flex flex-col h-[600px] border border-black/5 dark:border-white/5 bg-black/1 dark:bg-white/1 rounded-lg overflow-hidden">
+    <div className="relative flex flex-col h-[600px] border border-black/5 dark:border-white/10 bg-black/1 dark:bg-white/5 rounded-lg overflow-hidden">
       {/* Header section with step counter and controls */}
       <div className="flex items-center justify-between p-4 bg-white dark:bg-black">
         <h2 className="text-sm text-black dark:text-white opacity-70 leading-relaxed">
