@@ -24,7 +24,7 @@ const Layout = ({ children }: LayoutProps) => {
               </p>
             </div>
 
-            <div className="flex flex-col text-black/40 dark:text-white/40">
+            <div className="flex flex-col text-black/40 dark:text-white/40 gap-2">
               <p className="text-xs leading-relaxed">
                 Created by{" "}
                 <Link
