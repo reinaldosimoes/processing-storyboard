@@ -20,7 +20,7 @@ const Button = ({
   ariaLabel,
 }: ButtonProps) => {
   const baseStyles =
-    "border border-black/10 dark:border-white/10 bg-black/1 dark:bg-white/10 hover:bg-black/2 dark:hover:bg-white/2 rounded-lg transition-all duration-150 cursor-pointer shadow-lg hover:shadow-md active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed";
+    "border border-black/10 dark:border-white/10 bg-black/1 dark:bg-white/10 hover:bg-black/2 dark:hover:bg-white/2 rounded-lg transition-all duration-150 cursor-pointer shadow-lg hover:shadow-md dark:shadow-none dark:hover:shadow-none active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed";
 
   const sizes = {
     sm: "px-3 py-1.5 text-sm",

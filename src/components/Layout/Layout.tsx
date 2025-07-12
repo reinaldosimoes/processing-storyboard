@@ -8,7 +8,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div
-      className="container px-8 py-16 lg:py-0 md:mx-auto flex justify-between items-center min-h-screen gap-16 flex-col lg:flex-row text-black dark:text-white"
+      className="container px-8 py-16 lg:py-0 md:mx-auto flex justify-between items-center min-h-screen gap-16 flex-col lg:flex-row text-black dark:text-white pt-16"
       role="main"
     >
       <div className="h-full w-full lg:w-1/4">

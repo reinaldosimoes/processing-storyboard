@@ -22,7 +22,7 @@ Traditional list views lack clarity. They don't show how many steps exist, why s
 
 ## ✨ Features
 
-- **3D Interactive Cards** – tilt based on cursor movement
+- **Interactive Cards** – clean, modern card design
 - **Step-by-step Playback** – one card per step
 - **Progress Bars** – animated based on real latency data
 - **Icons & Colors** – mapped to operation types (`validate`, `enrich`, `fraud`, etc.)
@@ -81,7 +81,6 @@ function App() {
 
 ## 🎞 Animation Details
 
-- **3D Card Effects** – perspective-based interaction
 - **Spring Physics** – realistic, smooth transitions
 - **Layout Shifts** – animated entry/exit with auto-layout
 - **Progress Timing** – bars animate based on latency values

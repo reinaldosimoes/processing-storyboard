@@ -3,7 +3,7 @@ import { Step } from "../../types/api";
 import { operations } from "../../types/operations";
 import Card from "../Card/Card";
 import { useEffect, useState } from "react";
-import { Play, Pause, RefreshCw } from "lucide-react";
+import { Play, Pause, RefreshCw, ArrowRight, Check } from "lucide-react";
 import Button from "../Button/Button";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
@@ -15,6 +15,39 @@ const LATENCY_INTERVALS = {
   slow: 400, // Slower operations like external API calls
   average: 300, // Standard operations
   fast: 200, // Quick operations like validation
+};
+
+/**
+ * Animation configuration for consistent, smooth transitions
+ */
+const ANIMATION_CONFIG = {
+  // Entry animation for new cards
+  enter: {
+    y: -120,
+    opacity: 0,
+    scale: 0.95,
+  },
+  // Exit animation for completed cards
+  exit: {
+    y: 120,
+    opacity: 0,
+    scale: 0.95,
+  },
+  // Active state animation
+  active: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+  },
+  // Spring configuration for natural movement
+  spring: {
+    type: "spring",
+    stiffness: 400,
+    damping: 35,
+    mass: 0.8,
+  },
+  // Duration for simple transitions
+  duration: 0.4,
 };
 
 interface StepsProps {
@@ -67,6 +100,19 @@ const Processing = ({ steps }: StepsProps) => {
   // Toggles the autoplay state
   const toggleAutoplay = () => setIsAutoplay(!isAutoplay);
 
+  // Manually advances to the next step
+  const nextStep = () => {
+    if (activeIndex < steps.length - 1) {
+      setActiveIndex((prev) => prev + 1);
+      setProgress(0);
+    }
+  };
+
+  // Manually completes the current step
+  const completeCurrentStep = () => {
+    setProgress(100);
+  };
+
   // Resets the processing state to initial values
   const resetDemo = () => {
     setActiveIndex(0);
@@ -75,6 +121,43 @@ const Processing = ({ steps }: StepsProps) => {
   };
 
   const allCompleted = activeIndex >= steps.length;
+
+  /**
+   * Renders a single card with consistent animation
+   */
+  const renderCard = (
+    step: Step,
+    index: number,
+    isActive = false,
+    isCompleted = false
+  ) => {
+    const operation = operations[step.type];
+    const key = `${step.title}-${index}-${isActive ? "active" : "completed"}`;
+
+    return (
+      <AnimatePresence key={`container-${key}`}>
+        <motion.div
+          key={key}
+          layout
+          initial={ANIMATION_CONFIG.enter}
+          animate={ANIMATION_CONFIG.active}
+          exit={ANIMATION_CONFIG.exit}
+          transition={ANIMATION_CONFIG.spring}
+          className="w-full"
+        >
+          <Card
+            title={step.title}
+            description={operation.description}
+            icon={operation.icon}
+            iconColor={operation.color}
+            payload={step.payload}
+            progress={isActive ? progress : 100}
+            loading={isCompleted || progress === 100}
+          />
+        </motion.div>
+      </AnimatePresence>
+    );
+  };
 
   return (
     <div className="relative flex flex-col h-[600px] border border-black/5 dark:border-white/10 bg-black/1 dark:bg-white/5 rounded-lg overflow-hidden">
@@ -98,6 +181,28 @@ const Processing = ({ steps }: StepsProps) => {
                 <Play className="w-4 h-4 text-black dark:text-white" />
               )}
             </Button>
+
+            {!isAutoplay && !allCompleted && (
+              <>
+                <Button
+                  size="sm"
+                  onClick={completeCurrentStep}
+                  ariaLabel="Complete current step"
+                  disabled={progress === 100}
+                >
+                  <Check className="w-4 h-4 text-black dark:text-white" />
+                </Button>
+                <Button
+                  size="sm"
+                  onClick={nextStep}
+                  ariaLabel="Next step"
+                  disabled={progress < 100 || activeIndex >= steps.length - 1}
+                >
+                  <ArrowRight className="w-4 h-4 text-black dark:text-white" />
+                </Button>
+              </>
+            )}
+
             <Button size="sm" onClick={resetDemo} ariaLabel="Reset demo">
               <RefreshCw className="w-4 h-4 text-black dark:text-white" />
             </Button>
@@ -116,122 +221,37 @@ const Processing = ({ steps }: StepsProps) => {
               100
             )}%`,
           }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: ANIMATION_CONFIG.duration }}
         />
       </div>
 
       {/* Main content area with animated steps */}
       <div className="flex-1 px-6 overflow-y-auto">
         <div className="relative w-full md:w-[400px] my-8 mx-auto flex flex-col gap-4">
-          {/* AnimatePresence handles the mounting/unmounting of components
-             initial={false} prevents initial animation on first render
-             mode="popLayout" ensures proper layout animation when components are removed */}
           <AnimatePresence initial={false} mode="popLayout">
             {!allCompleted ? (
               <>
-                {/* Active step animation:
-                   - Starts at the top (z-50 ensures it stays above other steps)
-                   - Slides down (y: 120) when it completes */}
-                <motion.div
-                  key="active"
-                  exit={{ y: 120 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-full z-50"
-                >
-                  <Card
-                    title={steps[activeIndex].title}
-                    description={
-                      operations[steps[activeIndex].type].description
-                    }
-                    icon={operations[steps[activeIndex].type].icon}
-                    iconColor={operations[steps[activeIndex].type].color}
-                    payload={steps[activeIndex].payload}
-                    progress={progress}
-                    loading={progress === 100}
-                  />
-                </motion.div>
+                {/* Active step */}
+                {renderCard(steps[activeIndex], activeIndex, true, false)}
 
-                {/* Completed steps animation:
-                   - Each step has its own AnimatePresence for proper mounting/unmounting
-                   - Starts from above (y: -120) and animates to its final position (y: 0)
-                   - Uses spring animation for a more natural feel
-                   - Steps are reversed to show newest completed at the top */}
+                {/* Completed steps in reverse order */}
                 {steps
                   .slice(0, activeIndex)
                   .reverse()
-                  .map((step, index) => {
-                    const operation = operations[step.type];
-                    return (
-                      <AnimatePresence key={`container-${step.title}-${index}`}>
-                        <motion.div
-                          key={`completed-${step.title}-${index}`}
-                          layout
-                          initial={{ y: -120 }}
-                          animate={{ y: 0 }}
-                          exit={{ y: 120 }}
-                          transition={{
-                            type: "spring",
-                            stiffness: 300,
-                            damping: 30,
-                          }}
-                          className="w-full"
-                        >
-                          <Card
-                            title={step.title}
-                            description={operation.description}
-                            icon={operation.icon}
-                            iconColor={operation.color}
-                            payload={step.payload}
-                            progress={100}
-                            loading={true}
-                          />
-                        </motion.div>
-                      </AnimatePresence>
-                    );
-                  })}
+                  .map((step, index) => renderCard(step, index, false, true))}
               </>
             ) : (
-              /* Final state animation shows all steps in reverse order */
+              /* Final state - all steps completed */
               <motion.div
                 className="flex flex-col gap-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: ANIMATION_CONFIG.duration }}
               >
                 {steps
                   .slice()
                   .reverse()
-                  .map((step, index) => {
-                    const operation = operations[step.type];
-                    return (
-                      <AnimatePresence
-                        key={`final-container-${step.title}-${index}`}
-                      >
-                        <motion.div
-                          key={`final-${step.title}-${index}`}
-                          layout
-                          initial={{ y: -120 }}
-                          animate={{ y: 0 }}
-                          transition={{
-                            type: "spring",
-                            stiffness: 300,
-                            damping: 30,
-                          }}
-                          className="w-full"
-                        >
-                          <Card
-                            title={step.title}
-                            description={operation.description}
-                            icon={operation.icon}
-                            iconColor={operation.color}
-                            payload={step.payload}
-                            progress={100}
-                            loading={true}
-                          />
-                        </motion.div>
-                      </AnimatePresence>
-                    );
-                  })}
+                  .map((step, index) => renderCard(step, index, false, true))}
               </motion.div>
             )}
           </AnimatePresence>

@@ -1,6 +1,5 @@
 import { type ComponentType } from "react";
 import { Loader2, Check } from "lucide-react";
-import { with3D } from "./with3D";
 import { PayloadItem } from "../../types/api";
 
 interface CardProps {
@@ -24,7 +23,7 @@ const CardBase = ({
 }: CardProps) => {
   return (
     <div
-      className="group relative flex w-full flex-col overflow-hidden rounded-2xl bg-white border border-black/10 dark:border-white/10 mb-6 font-sans dark:bg-[#1A1A1A] shadow-xl dark:shadow-white/5 cursor-default"
+      className="group relative flex w-full flex-col overflow-hidden rounded-2xl bg-white border border-black/10 dark:border-white/10 mb-6 font-sans dark:bg-[#1A1A1A] shadow-xl dark:shadow-none cursor-default"
       tabIndex={0}
     >
       <div className="flex gap-4 items-center p-4">
@@ -81,6 +80,4 @@ const CardBase = ({
   );
 };
 
-const Card = with3D(CardBase);
-
-export default Card;
+export default CardBase;
