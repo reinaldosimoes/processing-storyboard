@@ -3,7 +3,7 @@ import { Step } from "../../types/api";
 import { operations } from "../../types/operations";
 import Card from "../Card/Card";
 import { useEffect, useState } from "react";
-import { Play, Pause, RefreshCw, ArrowRight, Check } from "lucide-react";
+import { Play, Pause, RefreshCw } from "lucide-react";
 import Button from "../Button/Button";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
@@ -100,19 +100,6 @@ const Processing = ({ steps }: StepsProps) => {
   // Toggles the autoplay state
   const toggleAutoplay = () => setIsAutoplay(!isAutoplay);
 
-  // Manually advances to the next step
-  const nextStep = () => {
-    if (activeIndex < steps.length - 1) {
-      setActiveIndex((prev) => prev + 1);
-      setProgress(0);
-    }
-  };
-
-  // Manually completes the current step
-  const completeCurrentStep = () => {
-    setProgress(100);
-  };
-
   // Resets the processing state to initial values
   const resetDemo = () => {
     setActiveIndex(0);
@@ -181,27 +168,6 @@ const Processing = ({ steps }: StepsProps) => {
                 <Play className="w-4 h-4 text-black dark:text-white" />
               )}
             </Button>
-
-            {!isAutoplay && !allCompleted && (
-              <>
-                <Button
-                  size="sm"
-                  onClick={completeCurrentStep}
-                  ariaLabel="Complete current step"
-                  disabled={progress === 100}
-                >
-                  <Check className="w-4 h-4 text-black dark:text-white" />
-                </Button>
-                <Button
-                  size="sm"
-                  onClick={nextStep}
-                  ariaLabel="Next step"
-                  disabled={progress < 100 || activeIndex >= steps.length - 1}
-                >
-                  <ArrowRight className="w-4 h-4 text-black dark:text-white" />
-                </Button>
-              </>
-            )}
 
             <Button size="sm" onClick={resetDemo} ariaLabel="Reset demo">
               <RefreshCw className="w-4 h-4 text-black dark:text-white" />
