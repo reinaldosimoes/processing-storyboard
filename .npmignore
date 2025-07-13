@@ -1,0 +1,39 @@
+# Development files
+src/
+.github/
+.vscode/
+*.log
+*.tsbuildinfo
+
+# Build artifacts (except dist)
+build/
+coverage/
+
+# Configuration files
+.eslintrc*
+.prettierrc*
+.editorconfig
+.env*
+
+# Documentation (keep README and LICENSE)
+CONTRIBUTING.md
+USAGE.md
+public/demo.html
+
+# Test files
+test/
+__tests__/
+*.test.*
+*.spec.*
+
+# Development dependencies
+node_modules/
+
+# IDE files
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db 

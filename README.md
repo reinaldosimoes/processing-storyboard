@@ -98,17 +98,38 @@ function App() {
 
 ## 🚀 Getting Started
 
+### For Users (Install as a Library)
+
 ```bash
-# 1. Install dependencies
+# Install the package
+npm install processing-storyboard
+
+# Import and use in your React app
+import { Processing, Step } from 'processing-storyboard';
+```
+
+See [USAGE.md](USAGE.md) for detailed usage instructions and examples.
+
+### For Developers (Local Development)
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/reinaldosimoes/processing-storyboard.git
+cd processing-storyboard
+
+# 2. Install dependencies
 npm install
 
-# 2. Start the dev server
+# 3. Start the dev server
 npm run dev
 
-# 3. Build for production
+# 4. Build for production
 npm run build
 
-# 4. Run tests
+# 5. Build library version
+npm run build:lib
+
+# 6. Run tests
 npm test
 
 # Watch mode

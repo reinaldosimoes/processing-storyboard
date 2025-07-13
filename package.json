@@ -3,18 +3,46 @@
   "private": false,
   "version": "0.0.1",
   "type": "module",
+  "description": "Interactive API debugger that visualizes the step-by-step processing of API calls with animated storyboards",
+  "keywords": [
+    "api",
+    "debugger",
+    "storyboard",
+    "react",
+    "typescript",
+    "animation",
+    "processing",
+    "visualization"
+  ],
+  "author": "Reinaldo Simoes",
+  "license": "MIT",
+  "homepage": "https://processing-storyboard.vercel.app",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/reinaldosimoes/processing-storyboard.git"
   },
+  "bugs": {
+    "url": "https://github.com/reinaldosimoes/processing-storyboard/issues"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src/components/Processing",
+    "src/types",
+    "README.md"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:lib": "vite build --config vite.lib.config.ts",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
     "test:watch": "vitest watch",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "npm run build:lib"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.8",
