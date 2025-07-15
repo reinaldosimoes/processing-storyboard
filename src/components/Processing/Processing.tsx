@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
+import type { Transition } from "motion/react";
 import { Step } from "../../types/api";
 import { operations } from "../../types/operations";
 import Card from "../Card/Card";
@@ -45,7 +46,7 @@ const ANIMATION_CONFIG = {
     stiffness: 400,
     damping: 35,
     mass: 0.8,
-  },
+  } as Transition,
   // Duration for simple transitions
   duration: 0.4,
 };
