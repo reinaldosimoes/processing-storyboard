@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import type { Transition } from "framer-motion";
+import type { Transition } from "motion/react";
 import { Step } from "../../types/api";
 import { operations } from "../../types/operations";
 import Card from "../Card/Card";
