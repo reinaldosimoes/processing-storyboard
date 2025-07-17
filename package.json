@@ -1,7 +1,6 @@
 {
   "name": "processing-storyboard",
-  "private": false,
-  "version": "1.0.1",
+  "private": true,
   "type": "module",
   "description": "Interactive API debugger that visualizes the step-by-step processing of API calls with animated storyboards",
   "keywords": [
@@ -24,15 +23,6 @@
   "bugs": {
     "url": "https://github.com/reinaldosimoes/processing-storyboard/issues"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src/components/Processing",
-    "src/types",
-    "README.md"
-  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -41,8 +31,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:watch": "vitest watch",
-    "test:coverage": "vitest run --coverage",
-    "prepublishOnly": "npm run build:lib"
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.8",

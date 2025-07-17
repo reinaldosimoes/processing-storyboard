@@ -1,14 +1,10 @@
 # Processing Storyboard, an Interactive API Debugger
 
-[![npm version](https://img.shields.io/npm/v/processing-storyboard?color=blue&label=npm)](https://www.npmjs.com/package/processing-storyboard)
-
 This repo re-imagines the API request/response lifecycle as an **interactive storyboard carousel**. It's designed to help **developers**, **designers**, and **non-technical stakeholders** quickly understand what happens between an API request and its response.
 
 ![Recording of the demo](./screenshot.png)
 
 **Live demo:** https://processing-storyboard.vercel.app/
-
-[**View on npm**](https://www.npmjs.com/package/processing-storyboard)
 
 ---
 
@@ -101,20 +97,6 @@ function App() {
 ---
 
 ## 🚀 Getting Started
-
-[**View on npm**](https://www.npmjs.com/package/processing-storyboard)
-
-### For Users (Install as a Library)
-
-```bash
-# Install the package
-npm install processing-storyboard
-
-# Import and use in your React app
-import { Processing, Step } from 'processing-storyboard';
-```
-
-See [USAGE.md](USAGE.md) for detailed usage instructions and examples.
 
 ### For Developers (Local Development)
 
