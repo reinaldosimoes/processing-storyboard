@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import Link from "../Link/Link";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 interface LayoutProps {
   children: ReactNode;
@@ -22,6 +23,10 @@ const Layout = ({ children }: LayoutProps) => {
                 Each API step is shown as an animated card, making complex
                 processes clear for everyone.
               </p>
+            </div>
+
+            <div className="py-2">
+              <ThemeToggle />
             </div>
 
             <div className="flex flex-col text-black/40 dark:text-white/40 gap-2">

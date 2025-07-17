@@ -6,7 +6,6 @@ import Card from "../Card/Card";
 import { useEffect, useState } from "react";
 import { Play, Pause, RefreshCw } from "lucide-react";
 import Button from "../Button/Button";
-import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 /**
  * Defines the latency intervals for different operation types
@@ -155,8 +154,6 @@ const Processing = ({ steps }: StepsProps) => {
           Step {Math.min(activeIndex + 1, steps.length)} of {steps.length}
         </h2>
         <div className="flex items-center gap-4">
-          <ThemeToggle />
-
           <div className="flex items-center gap-2">
             <Button
               size="sm"
