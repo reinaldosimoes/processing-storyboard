@@ -16,7 +16,9 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="h-full flex flex-col items-start">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-2">
-              <h1 className="text-sm leading-relaxed">Processing Storyboard</h1>
+              <h1 className="leading-relaxed font-semibold">
+                Processing Storyboard
+              </h1>
 
               <p className="text-sm opacity-70 leading-relaxed">
                 Visualize API workflows as an interactive storyboard carousel.
@@ -25,23 +27,7 @@ const Layout = ({ children }: LayoutProps) => {
               </p>
             </div>
 
-            <div className="py-2">
-              <ThemeToggle />
-            </div>
-
-            <div className="flex flex-col text-black/40 dark:text-white/40 gap-2">
-              <p className="text-xs leading-relaxed">
-                Created by{" "}
-                <Link
-                  href="https://reinaldo.pt"
-                  target="_blank"
-                  ariaLabel="Visit Reinaldo Simoes' website (opens in new tab)"
-                >
-                  Reinaldo Simoes
-                </Link>
-                .
-              </p>
-
+            <div className="flex flex-col gap-2">
               <p className="text-xs leading-relaxed">
                 Source code available on{" "}
                 <Link
@@ -52,6 +38,21 @@ const Layout = ({ children }: LayoutProps) => {
                 </Link>
                 .
               </p>
+
+              <p className="text-xs leading-relaxed">
+                Created by{" "}
+                <Link
+                  href="https://reinaldo.pt"
+                  target="_blank"
+                  ariaLabel="Visit Reinaldo Simoes' website (opens in new tab)"
+                >
+                  Reinaldo Simoes
+                </Link>
+              </p>
+            </div>
+
+            <div>
+              <ThemeToggle />
             </div>
           </div>
         </div>

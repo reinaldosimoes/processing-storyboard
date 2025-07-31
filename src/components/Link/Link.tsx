@@ -17,8 +17,7 @@ const Link = ({
   rel = "",
   ariaLabel,
 }: LinkProps) => {
-  const baseStyles =
-    "text-black/40 dark:text-white/40 underline hover:no-underline";
+  const baseStyles = "underline hover:no-underline";
 
   const linkClasses = `${baseStyles} ${className}`.trim();
 
